@@ -57,7 +57,7 @@ export default function Footer() {
         </div>
         
         <motion.div 
-          className="border-t border-gray-800 mt-8 pt-8 text-center text-text-dim text-sm"
+          className="border-t border-amber-900/20 mt-8 pt-8 text-center text-text-dim text-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}

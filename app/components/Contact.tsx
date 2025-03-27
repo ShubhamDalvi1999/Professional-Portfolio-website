@@ -48,7 +48,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 relative">
+    <section id="contact" className="py-24 relative bg-gradient-to-b from-secondary to-primary">
       <div className="container-section">
         <motion.div
           ref={ref}
@@ -78,7 +78,7 @@ export default function Contact() {
         <div className="max-w-2xl mx-auto">
           {isSubmitted ? (
             <motion.div 
-              className="bg-secondary/50 border border-accent/20 rounded-lg p-6 text-center"
+              className="bg-secondary/70 border border-accent/30 rounded-lg p-6 text-center"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3 }}
@@ -104,7 +104,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full bg-secondary border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-300"
+                  className="w-full bg-secondary border border-amber-900/30 rounded-md py-3 px-4 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-300"
                 />
               </div>
               
@@ -117,7 +117,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full bg-secondary border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-300"
+                  className="w-full bg-secondary border border-amber-900/30 rounded-md py-3 px-4 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-300"
                 />
               </div>
               
@@ -130,7 +130,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full bg-secondary border border-gray-700 rounded-md py-3 px-4 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-300"
+                  className="w-full bg-secondary border border-amber-900/30 rounded-md py-3 px-4 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-300"
                 />
               </div>
               

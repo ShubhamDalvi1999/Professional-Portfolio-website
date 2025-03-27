@@ -85,7 +85,7 @@ export default function Skills() {
   ];
   
   return (
-    <section id="skills" className="py-24 relative">
+    <section id="skills" className="py-24 relative bg-gradient-to-b from-primary to-secondary">
       <div className="container-section">
         <motion.div
           ref={ref}

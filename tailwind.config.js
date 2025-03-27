@@ -6,10 +6,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#0A0A0A',        // Main background
-        secondary: '#121212',      // Secondary backgrounds
-        accent: '#00FFFF',         // Glowing accent color
-        'accent-alt': '#FF00FF',   // Secondary accent for gradients
+        primary: '#050505',        // Darker background
+        secondary: '#0F0F0F',      // Secondary backgrounds
+        accent: '#F59E0B',         // Main amber accent (amber-500)
+        'accent-alt': '#B45309',   // Secondary accent (amber-700)
+        'accent-dark': '#78350F',  // Darker amber (amber-900)
         text: '#F8F8F8',           // Main text color
         'text-dim': '#A0A0A0',     // Dimmed text
       },
@@ -35,6 +36,7 @@ module.exports = {
       backgroundImage: {
         'cosmic-gradient': 'linear-gradient(to right, #000000, #0A0A0A, #121212)',
         'card-gradient': 'linear-gradient(135deg, rgba(10, 10, 10, 0.5), rgba(25, 25, 25, 0.8))',
+        'amber-gradient': 'linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(180, 83, 9, 0.2))',
       },
     },
   },

@@ -5,6 +5,7 @@
 @layer base {
   body {
     @apply bg-primary text-text antialiased;
+    background-color: #050505;
   }
 }
 
@@ -36,7 +37,7 @@
   
   .cosmic-card::before {
     content: '';
-    @apply absolute inset-0 bg-card-gradient opacity-0 transition-opacity duration-300;
+    @apply absolute inset-0 bg-amber-gradient opacity-0 transition-opacity duration-300;
   }
   
   .cosmic-card:hover::before {
@@ -54,6 +55,55 @@
   
   .glow-effect:hover::after {
     @apply opacity-20;
+  }
+
+  .golden-glow {
+    position: relative;
+  }
+  
+  .golden-glow::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, rgba(245, 158, 11, 0), rgba(245, 158, 11, 0.3));
+    border-radius: 9999px;
+    z-index: -1;
+    filter: blur(8px);
+    opacity: 0.6;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+  }
+  
+  @media (min-width: 640px) {
+    .golden-glow::after {
+      inset: -3px;
+      filter: blur(12px);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .golden-glow::after {
+      inset: -4px;
+      filter: blur(16px);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .golden-glow::after {
+      inset: -5px;
+      filter: blur(20px);
+    }
+  }
+  
+  .golden-glow:hover::after {
+    opacity: 0.8;
+    background: linear-gradient(45deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.5));
+    filter: blur(16px);
+  }
+
+  .golden-glow:focus-within::after {
+    opacity: 1;
+    background: linear-gradient(45deg, rgba(245, 158, 11, 0.3), rgba(245, 158, 11, 0.6));
+    filter: blur(20px);
   }
 }
 
@@ -87,7 +137,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0A0A0A;
+  background: #050505;
 }
 
 ::-webkit-scrollbar-thumb {

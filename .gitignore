@@ -6,6 +6,17 @@
 # testing
 /coverage
 
+#images
+/public/images
+/images
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.webp
+
+
 # next.js
 /.next/
 /out/

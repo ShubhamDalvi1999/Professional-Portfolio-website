@@ -50,37 +50,37 @@ export default function Projects() {
     {
       title: "Real-Time Streaming with Kafka & Flink",
       description: "Reduced latency by 60% in course recommendation engine",
-      gradient: "bg-gradient-to-br from-blue-900/50 to-purple-900/50 border border-blue-800/30",
+      gradient: "bg-gradient-to-br from-amber-950/80 to-amber-900/40 border border-amber-800/30",
     },
     {
       title: "Enterprise LLM RAG Pipeline",
       description: "Improved answer accuracy by 45% for internal knowledge system",
-      gradient: "bg-gradient-to-br from-purple-900/50 to-pink-900/50 border border-purple-800/30",
+      gradient: "bg-gradient-to-br from-amber-900/50 to-amber-800/40 border border-amber-700/30",
     },
     {
       title: "ML Feature Store Platform",
       description: "Decreased model training time by 75% through optimized feature access",
-      gradient: "bg-gradient-to-br from-pink-900/50 to-red-900/50 border border-pink-800/30",
+      gradient: "bg-gradient-to-br from-amber-800/50 to-amber-700/40 border border-amber-600/30",
     },
     {
       title: "Multi-Modal AI Data Processor",
       description: "Automated document understanding system with 93% accuracy",
-      gradient: "bg-gradient-to-br from-red-900/50 to-orange-900/50 border border-red-800/30",
+      gradient: "bg-gradient-to-br from-amber-700/50 to-amber-600/40 border border-amber-500/30",
     },
     {
       title: "Data Mesh Architecture",
       description: "Designed domain-driven data platform reducing time-to-insight by 80%",
-      gradient: "bg-gradient-to-br from-orange-900/50 to-yellow-900/50 border border-orange-800/30",
+      gradient: "bg-gradient-to-br from-amber-800/50 to-amber-700/40 border border-amber-600/30",
     },
     {
       title: "Automated MLOps Pipeline",
       description: "Cut deployment time from 2 weeks to 1 hour with full CI/CD integration",
-      gradient: "bg-gradient-to-br from-teal-900/50 to-blue-900/50 border border-teal-800/30",
+      gradient: "bg-gradient-to-br from-amber-900/50 to-amber-800/40 border border-amber-700/30",
     },
   ];
 
   return (
-    <section id="projects" className="py-24 relative">
+    <section id="projects" className="py-24 relative bg-secondary">
       <div className="container-section">
         <motion.div
           ref={ref}

@@ -21,9 +21,15 @@ export default function Particles({ count = 20 }: ParticlesProps) {
   const [particles, setParticles] = useState<Particle[]>([]);
 
   useEffect(() => {
-    const colors = ['#00FFFF', '#FF00FF', '#FFFFFF', '#0088FF'];
-    const sizes = [4, 6, 8, 10, 12];
-    const durations = [15, 20, 25, 30];
+    const colors = [
+      'rgba(245, 158, 11, 0.5)', // amber-500 with higher opacity
+      'rgba(217, 119, 6, 0.5)',  // amber-600 with higher opacity
+      'rgba(251, 191, 36, 0.4)', // amber-400 with higher opacity
+      'rgba(254, 243, 199, 0.4)', // amber-100 with higher opacity
+      'rgba(252, 211, 77, 0.5)',  // amber-300 with higher opacity
+    ];
+    const sizes = [4, 5, 6, 8, 10];
+    const durations = [18, 22, 26, 30];
     
     const newParticles: Particle[] = [];
     
@@ -55,7 +61,7 @@ export default function Particles({ count = 20 }: ParticlesProps) {
             height: particle.size,
             backgroundColor: particle.color,
             boxShadow: `0 0 ${particle.size * 2}px ${particle.color}`,
-            opacity: 0.4,
+            opacity: 0.8,
           }}
           animate={{
             x: [0, 20, -20, 10, -10, 0],
