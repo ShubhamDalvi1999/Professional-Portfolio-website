@@ -2,63 +2,9 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-
-interface SkillCardProps {
-  title: string;
-  skills: string[];
-  icon: string;
-  delay: number;
-}
-
-function SkillCard({ title, skills, icon, delay }: SkillCardProps) {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  return (
-    <motion.div
-      ref={ref}
-      className="cosmic-card glow-effect h-full"
-      initial={{ opacity: 0, y: 20 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ delay: delay * 0.2, duration: 0.5 }}
-    >
-      <div className="flex flex-col h-full">
-        <div className="flex items-center mb-4">
-          <div className="text-2xl text-accent mr-3">{icon}</div>
-          <h3 className="text-xl font-bold">{title}</h3>
-        </div>
-        
-        <ul className="space-y-2 mb-6 flex-grow">
-          {skills.map((skill, index) => (
-            <motion.li 
-              key={index}
-              className="flex items-center text-text-dim"
-              initial={{ opacity: 0, x: -10 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: delay * 0.2 + 0.1 * index, duration: 0.3 }}
-            >
-              <span className="text-accent mr-2">•</span>
-              {skill}
-            </motion.li>
-          ))}
-        </ul>
-        
-        <motion.button
-          className="btn-primary self-start mt-auto"
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: delay * 0.2 + 0.5, duration: 0.3 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Explore
-        </motion.button>
-      </div>
-    </motion.div>
-  );
-}
+import { ThreeDPhotoCarousel } from './ui/3d-carousel';
+import Particles from './Particles';
+import { useEffect, useState } from 'react';
 
 export default function Skills() {
   const { ref, inView } = useInView({
@@ -66,36 +12,90 @@ export default function Skills() {
     threshold: 0.1,
   });
   
-  const skills = [
-    {
-      title: "Data Engineering",
-      icon: "📊",
-      skills: ["Spark", "Databricks", "Azure", "Snowflake", "Airflow", "Kafka"],
-    },
-    {
-      title: "AI/Machine Learning",
-      icon: "🧠",
-      skills: ["LLMs", "RAG", "Embeddings", "GenAI Pipelines", "ML Ops", "PyTorch"],
-    },
-    {
-      title: "Cloud & DevOps",
-      icon: "☁️",
-      skills: ["CI/CD", "Terraform", "Unity Catalog", "Monitoring", "Docker", "Kubernetes"],
+  // State for lazy loading carousels
+  const [showDataEngineering, setShowDataEngineering] = useState(false);
+  const [showAiMl, setShowAiMl] = useState(false);
+  const [showCloud, setShowCloud] = useState(false);
+
+  // Configure intersection observers for each carousel
+  const { ref: dataEngineeringRef, inView: dataEngineeringInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: aiMlRef, inView: aiMlInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: cloudRef, inView: cloudInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  // Load carousels when they come into view
+  useEffect(() => {
+    if (dataEngineeringInView) {
+      setTimeout(() => setShowDataEngineering(true), 100);
     }
+  }, [dataEngineeringInView]);
+
+  useEffect(() => {
+    if (aiMlInView) {
+      setTimeout(() => setShowAiMl(true), 100);
+    }
+  }, [aiMlInView]);
+
+  useEffect(() => {
+    if (cloudInView) {
+      setTimeout(() => setShowCloud(true), 100);
+    }
+  }, [cloudInView]);
+  
+  // Define carousel items for each skill category with correct filenames
+  const dataEngineeringSkills = [
+    `/images/skills/databricks.png`,
+    `/images/skills/spark.png`,
+    `/images/skills/glue.png`,
+    `/images/skills/snowflake.png`,
+    `/images/skills/redshift.png`,
+    `/images/skills/azure.jpg`,
+  ];
+  
+  const aiMlSkills = [
+    `/images/skills/python.png`, 
+    `/images/skills/powerbi.jpg`,
+    `/images/skills/databricks.png`,
+    `/images/skills/spark.png`,
+    `/images/skills/azure.jpg`,
+    `/images/skills/snowflake.png`,
+  ];
+  
+  const cloudSkills = [
+    `/images/skills/azure.jpg`,
+    `/images/skills/databricks.png`,
+    `/images/skills/glue.png`,
+    `/images/skills/python.png`,
+    `/images/skills/redshift.png`,
+    `/images/skills/spark.png`,
   ];
   
   return (
-    <section id="skills" className="py-24 relative bg-gradient-to-b from-primary to-secondary">
-      <div className="container-section">
+    <section id="skills" className="py-28 relative bg-gradient-to-b from-black/90 to-primary/90 overflow-hidden">
+      <div className="absolute inset-0 z-0 opacity-40">
+        <Particles count={25} />
+      </div>
+      
+      <div className="container-fluid mx-auto px-4 relative z-10">
         <motion.div
           ref={ref}
-          className="text-center mb-12"
+          className="text-center mb-16"
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5 }}
         >
           <motion.h2 
-            className="text-3xl md:text-4xl font-bold mb-4"
+            className="text-3xl md:text-5xl font-bold mb-4"
             initial={{ y: 20 }}
             animate={inView ? { y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -103,7 +103,7 @@ export default function Skills() {
             Technical <span className="text-accent">Expertise</span>
           </motion.h2>
           <motion.p 
-            className="text-text-dim max-w-2xl mx-auto"
+            className="text-text-dim max-w-2xl mx-auto text-lg"
             initial={{ y: 20 }}
             animate={inView ? { y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -112,16 +112,51 @@ export default function Skills() {
           </motion.p>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {skills.map((skill, index) => (
-            <SkillCard
-              key={skill.title}
-              title={skill.title}
-              icon={skill.icon}
-              skills={skill.skills}
-              delay={index + 1}
-            />
-          ))}
+        <div className="space-y-36">
+          <motion.div
+            ref={dataEngineeringRef}
+            initial={{ opacity: 0, y: 30 }}
+            animate={dataEngineeringInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="skill-carousel-container min-h-[400px]"
+          >
+            {showDataEngineering && (
+              <ThreeDPhotoCarousel 
+                cards={dataEngineeringSkills} 
+                category="Data Engineering" 
+              />
+            )}
+          </motion.div>
+          
+          <motion.div
+            ref={aiMlRef}
+            initial={{ opacity: 0, y: 30 }}
+            animate={aiMlInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="skill-carousel-container min-h-[400px]"
+          >
+            {showAiMl && (
+              <ThreeDPhotoCarousel 
+                cards={aiMlSkills} 
+                category="AI & Machine Learning" 
+              />
+            )}
+          </motion.div>
+          
+          <motion.div
+            ref={cloudRef}
+            initial={{ opacity: 0, y: 30 }}
+            animate={cloudInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.7 }}
+            className="skill-carousel-container min-h-[400px]"
+          >
+            {showCloud && (
+              <ThreeDPhotoCarousel 
+                cards={cloudSkills} 
+                category="Cloud & DevOps" 
+              />
+            )}
+          </motion.div>
         </div>
       </div>
     </section>
