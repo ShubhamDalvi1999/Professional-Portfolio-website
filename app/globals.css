@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-primary text-text antialiased;
+  }
+}
+
+@layer components {
+  .container-section {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .nav-link {
+    @apply relative text-text hover:text-accent transition-colors duration-300 px-3 py-2;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-0 h-0.5 bg-accent transition-all duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .btn-primary {
+    @apply px-4 py-2 bg-transparent border border-accent text-accent rounded-md hover:bg-accent hover:text-primary transition-all duration-300 inline-flex items-center;
+  }
+  
+  .cosmic-card {
+    @apply bg-secondary border border-gray-800 rounded-lg p-6 transition-all duration-300 hover:border-accent relative overflow-hidden;
+  }
+  
+  .cosmic-card::before {
+    content: '';
+    @apply absolute inset-0 bg-card-gradient opacity-0 transition-opacity duration-300;
+  }
+  
+  .cosmic-card:hover::before {
+    @apply opacity-100;
+  }
+  
+  .glow-effect {
+    @apply relative;
+  }
+  
+  .glow-effect::after {
+    content: '';
+    @apply absolute inset-0 rounded-lg bg-accent blur-xl opacity-0 -z-10 transition-opacity duration-300;
+  }
+  
+  .glow-effect:hover::after {
+    @apply opacity-20;
+  }
+}
+
+/* Particle background animation */
+@keyframes float-particle {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-10px) translateX(10px);
+  }
+  50% {
+    transform: translateY(-20px) translateX(0);
+  }
+  75% {
+    transform: translateY(-10px) translateX(-10px);
+  }
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2;
+  z-index: -1;
+  animation: float-particle 15s infinite ease-in-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+} 
