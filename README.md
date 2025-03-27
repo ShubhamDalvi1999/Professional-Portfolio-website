@@ -2,7 +2,8 @@
 
 A futuristic, minimalistic Data & AI Engineering portfolio website inspired by the aesthetic and layout of x.ai. The site features a dark theme with cosmic gradients and a central interactive search bar.
 
-![image](https://github.com/user-attachments/assets/53a1f053-f2b6-4900-b8db-6d41f0d0a318)
+![image](https://github.com/user-attachments/assets/e78b62eb-49e4-4f1c-b3f1-5c45308938a9)
+
 
 ## Features
 
