@@ -298,4 +298,29 @@ input:focus {
 /* Remove the gradient line from the last carousel */
 .skill-carousel-container:last-child::after {
   display: none;
+}
+
+/* Experience timeline styles */
+.cosmic-glow {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.cosmic-glow:hover {
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .cosmic-glow {
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(6px);
+    transition: all 0.3s ease;
+  }
+  
+  .cosmic-glow:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 15px 1px rgba(245, 158, 11, 0.1);
+  }
 } 
