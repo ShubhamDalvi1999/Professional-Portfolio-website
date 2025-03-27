@@ -6,6 +6,7 @@ A futuristic, minimalistic Data & AI Engineering portfolio website inspired by t
 
 ![image](https://github.com/user-attachments/assets/ce49672c-dcf5-45b2-bc10-d898581ecd52)
 
+![image](https://github.com/user-attachments/assets/d1f48422-9aa4-4e8d-9af6-9eb5dc370df9)
 
 ## Features
 
