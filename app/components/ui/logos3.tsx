@@ -1,11 +1,13 @@
 "use client";
 
+import { useEffect, useState, useRef } from "react";
 import AutoScroll from "embla-carousel-auto-scroll";
 
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  type CarouselApi
 } from "./carousel";
 
 interface Logo {
@@ -19,6 +21,9 @@ interface Logos3Props {
   heading?: string;
   logos?: Logo[];
   className?: string;
+  speed?: number;
+  direction?: "forward" | "backward";
+  startDelay?: number;
 }
 
 const Logos3 = ({
@@ -74,7 +79,62 @@ const Logos3 = ({
     },
   ],
   className,
+  speed = 0.8,
+  direction = "forward",
+  startDelay = 0,
 }: Logos3Props) => {
+  const [autoScrollPlugin, setAutoScrollPlugin] = useState<any>(null);
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+  const autoScrollRef = useRef<any>(null);
+  const resumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  
+  useEffect(() => {
+    // When component unmounts, clear any timeouts
+    return () => {
+      if (resumeTimeoutRef.current) {
+        clearTimeout(resumeTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const createAutoScroll = () => {
+      const plugin = AutoScroll({
+        playOnInit: true,
+        speed: speed,
+        direction: direction
+      });
+      autoScrollRef.current = plugin;
+      return plugin;
+    };
+
+    if (startDelay > 0) {
+      const timer = setTimeout(() => {
+        setAutoScrollPlugin(createAutoScroll());
+      }, startDelay);
+      
+      return () => clearTimeout(timer);
+    } else {
+      setAutoScrollPlugin(createAutoScroll());
+    }
+  }, [startDelay, speed, direction]);
+
+  const handleCarouselClick = () => {
+    if (!carouselApi || !autoScrollRef.current) return;
+    
+    // Stop current running timeout if any
+    if (resumeTimeoutRef.current) {
+      clearTimeout(resumeTimeoutRef.current);
+    }
+    
+    // Resume auto-scrolling after 3 seconds
+    resumeTimeoutRef.current = setTimeout(() => {
+      if (autoScrollRef.current && autoScrollRef.current.play) {
+        autoScrollRef.current.play();
+      }
+    }, 3000);
+  };
+
   return (
     <section className={`py-6 ${className || ""}`}>
       <div className="container flex flex-col items-center text-center px-4 md:px-6">
@@ -90,14 +150,11 @@ const Logos3 = ({
               align: "start",
               containScroll: "trimSnaps"
             }}
-            plugins={[
-              AutoScroll({ 
-                playOnInit: true,
-                speed: 0.8,
-                direction: "forward"
-              })
-            ]}
+            plugins={autoScrollPlugin ? [autoScrollPlugin] : []}
             className="w-full"
+            onMouseDown={handleCarouselClick}
+            onTouchStart={handleCarouselClick}
+            setApi={setCarouselApi}
           >
             <CarouselContent className="ml-0">
               {[...logos, ...logos].map((logo, index) => (
@@ -106,7 +163,7 @@ const Logos3 = ({
                   className="flex basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6 justify-center pl-0 shrink-0"
                 >
                   <div className="mx-4 sm:mx-5 flex shrink-0 items-center justify-center">
-                    <div className="relative flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-background/10 rounded-lg backdrop-blur p-3 shadow-cosmic-glow hover:shadow-cosmic-glow-hover transition-all duration-300 border border-primary/20">
+                    <div className="relative flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-background/10 rounded-lg backdrop-blur p-3 transition-all duration-300 border border-primary/10">
                       <img
                         src={logo.image}
                         alt={logo.description}

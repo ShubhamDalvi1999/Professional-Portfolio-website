@@ -27,10 +27,30 @@ export default function Skills() {
               Technical Skills
             </h2>
             <div className="w-full flex flex-col space-y-12">
-              <Logos3 {...dataEngineeringDemo} />
-              <Logos3 {...aiMlDemo} />
-              <Logos3 {...cloudDevOpsDemo} />
-              <Logos3 {...webDevDemo} />
+              <Logos3 
+                {...dataEngineeringDemo} 
+                speed={0.75} 
+                direction="forward" 
+                startDelay={0}
+              />
+              <Logos3 
+                {...aiMlDemo} 
+                speed={1.1} 
+                direction="backward" 
+                startDelay={1200}
+              />
+              <Logos3 
+                {...cloudDevOpsDemo} 
+                speed={0.85} 
+                direction="forward" 
+                startDelay={600}
+              />
+              <Logos3 
+                {...webDevDemo} 
+                speed={0.95} 
+                direction="backward" 
+                startDelay={300}
+              />
             </div>
           </div>
         </div>
