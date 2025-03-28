@@ -323,4 +323,13 @@ input:focus {
     background-color: rgba(0, 0, 0, 0.3);
     box-shadow: 0 0 15px 1px rgba(245, 158, 11, 0.1);
   }
+}
+
+/* Logo carousel glow effects */
+.shadow-cosmic-glow {
+  box-shadow: 0 0 10px 1px rgba(245, 158, 11, 0.05);
+}
+
+.shadow-cosmic-glow-hover {
+  box-shadow: 0 0 20px 2px rgba(245, 158, 11, 0.15);
 } 

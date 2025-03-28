@@ -11,8 +11,8 @@ services:
       - ./app:/app/app
       - ./public:/app/public
     environment:
-      - NODE_ENV=development
-    command: npm run dev
+      - NODE_ENV=production
+    restart: unless-stopped
     
   # For production use
   # web:

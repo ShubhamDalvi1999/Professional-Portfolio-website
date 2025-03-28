@@ -9,8 +9,8 @@ export default function Footer() {
   const footerLinks = [
     { name: "Blog", href: "#blog" },
     { name: "Resume", href: "#resume" },
-    { name: "Github", href: "https://github.com" },
-    { name: "LinkedIn", href: "https://linkedin.com" },
+    { name: "Github", href: "https://github.com/ShubhamDalvi1999" },
+    { name: "LinkedIn", href: "https://www.linkedin.com/in/shubham-dalvi-21603316b/" },
   ];
 
   return (
