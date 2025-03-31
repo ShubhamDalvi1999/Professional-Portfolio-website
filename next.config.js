@@ -16,6 +16,12 @@ const nextConfig = {
       }
     ]
   },
+  // Ensure Docker compatibility
+  experimental: {
+    // Enable if needed for middleware or edge functions
+    // appDir: true,
+    outputFileTracingRoot: process.env.NODE_ENV === 'production' ? '/app' : undefined,
+  },
 };
 
 module.exports = nextConfig; 
