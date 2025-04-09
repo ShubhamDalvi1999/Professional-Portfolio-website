@@ -6,14 +6,6 @@
 # testing
 /coverage
 
-#images
-/images
-*.gif
-*.svg
-*.webp
-*.md
-
-
 # next.js
 /.next/
 /out/
