@@ -1,7 +1,8 @@
 version: '3'
 
 services:
-  web:
+  # Development service
+  web-dev:
     build:
       context: .
       dockerfile: Dockerfile
@@ -10,10 +11,37 @@ services:
     volumes:
       - ./app:/app/app
       - ./public:/app/public
+      - ./next.config.js:/app/next.config.js
     environment:
       - NODE_ENV=development
+      - NEXT_TELEMETRY_DISABLED=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
     command: npm run dev
     
+  # Production service
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+    restart: always
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
   # For production use
   # web:
   #   build:
