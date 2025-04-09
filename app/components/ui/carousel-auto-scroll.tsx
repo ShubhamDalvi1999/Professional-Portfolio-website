@@ -2,13 +2,14 @@
 
 import * as React from "react"
 import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react"
+import { type EmblaPluginType } from "embla-carousel"
 import AutoScroll from "embla-carousel-auto-scroll"
 
 import { cn } from "@/lib/utils"
 
 type CarouselAutoScrollProps = {
-  opts?: UseEmblaCarouselType[0]
-  plugins?: UseEmblaCarouselType[1]
+  opts?: Parameters<typeof useEmblaCarousel>[0]
+  plugins?: EmblaPluginType[]
   className?: string
 }
 
@@ -29,9 +30,9 @@ export function CarouselAutoScroll({
     [
       AutoScroll({
         speed: 0.5,
-        direction: "ltr",
-      }),
-      ...(plugins || []),
+        direction: "forward",
+      }) as EmblaPluginType,
+      ...(plugins || [])
     ]
   )
 
