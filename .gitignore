@@ -7,14 +7,11 @@
 /coverage
 
 #images
-/public/images
 /images
-*.png
-*.jpg
-*.jpeg
 *.gif
 *.svg
 *.webp
+*.md
 
 
 # next.js
