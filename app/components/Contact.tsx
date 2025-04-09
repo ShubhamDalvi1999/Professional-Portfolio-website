@@ -86,7 +86,7 @@ export default function Contact() {
             >
               <div className="text-accent text-5xl mb-4">✓</div>
               <h3 className="text-xl font-bold mb-2">Thank you for reaching out!</h3>
-              <p className="text-text-dim">Your message has been sent successfully. I'll get back to you soon.</p>
+              <p className="text-text-dim">Your message has been sent successfully. I&apos;ll get back to you soon.</p>
             </motion.div>
           ) : (
             <motion.form 
