@@ -1,4 +1,4 @@
-ride # GitHub Pages Deployment
+# GitHub Pages Deployment
 
 This document provides instructions for deploying this portfolio website to GitHub Pages.
 
