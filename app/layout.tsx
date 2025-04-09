@@ -1,17 +1,21 @@
 import type { Metadata } from 'next';
 import { Inter, Roboto_Mono } from 'next/font/google';
 import './globals.css';
+import './fonts.css'; // Import local font fallbacks
 
+// Attempt to load Google fonts with fallback options
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
+  fallback: ['system-ui', 'Arial', 'sans-serif'],
 });
 
 const robotoMono = Roboto_Mono({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-roboto-mono',
+  fallback: ['Consolas', 'monospace'],
 });
 
 export const metadata: Metadata = {

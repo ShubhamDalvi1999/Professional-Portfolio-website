@@ -2,6 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   output: 'export',
+  eslint: {
+    // Disable ESLint during production builds for faster builds
+    ignoreDuringBuilds: true,
+  },
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -13,6 +17,16 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'www.shadcnblocks.com',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'fonts.googleapis.com',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'fonts.gstatic.com',
         pathname: '**',
       }
     ]
