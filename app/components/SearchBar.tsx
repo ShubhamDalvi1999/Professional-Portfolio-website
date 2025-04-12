@@ -44,7 +44,7 @@ export default function SearchBar() {
   };
 
   return (
-    <section className="relative py-12 md:py-16 bg-gradient-to-b from-black/90 to-black/70 overflow-hidden border-t border-amber-900/20">
+    <section className="relative py-12 md:py-16 bg-black overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Particles count={30} />
       </div>
@@ -64,14 +64,14 @@ export default function SearchBar() {
             transition={{ duration: 0.8 }}
             onClick={handleSearchClick}
           >
-            <div className="relative flex items-center golden-glow">
+            <div className="relative flex items-center">
               <input
                 ref={inputRef}
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder={placeholder}
-                className="w-full bg-black/80 backdrop-blur-md text-white text-sm sm:text-base md:text-lg lg:text-xl font-light tracking-wide border border-amber-700/50 rounded-full py-3 sm:py-4 md:py-5 lg:py-6 px-4 sm:px-6 md:px-8 pr-10 sm:pr-12 md:pr-14 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500 transition-all duration-300"
+                className="w-full bg-black/80 backdrop-blur-md text-white text-sm sm:text-base md:text-lg lg:text-xl font-light tracking-wide border border-black/50 rounded-full py-3 sm:py-4 md:py-5 lg:py-6 px-4 sm:px-6 md:px-8 pr-10 sm:pr-12 md:pr-14 focus:outline-none focus:border-accent/30 focus:ring-1 focus:ring-accent/30 transition-all duration-300"
               />
               <motion.div 
                 className="absolute right-3 sm:right-4 md:right-6 p-1 sm:p-2"

@@ -186,7 +186,8 @@ body {
   }
 }
 
-input:focus {
+/* Change from input:focus to target the search input by default */
+.relative.flex.items-center input {
   animation: glow 2s infinite;
 }
 
