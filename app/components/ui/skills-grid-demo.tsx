@@ -62,25 +62,29 @@ export const skillCards = [
     id: 1,
     content: <DataEngineeringSkills />,
     className: "md:col-span-2 min-h-[300px]",
-    thumbnail: "/images/skills/databricks.svg",
+    thumbnail: "/images/banners/data-engineering-banner.png",
+    backgroundStyle: "object-cover object-center bg-blend-overlay bg-black/40"
   },
   {
     id: 2,
-    content: <AIMLSkills />,
+    content:  <AIMLSkills />,
     className: "col-span-1 min-h-[300px]",
-    thumbnail: "/images/skills/llm.svg",
+    thumbnail: "/images/banners/ai-ml-banner.png",
+    backgroundStyle: "object-cover object-center bg-blend-overlay bg-black/40"
   },
   {
     id: 3,
-    content: <CloudDevOpsSkills />,
+    content: <WebDevSkills />,
     className: "col-span-1 min-h-[300px]",
-    thumbnail: "/images/skills/AWS.svg",
+    thumbnail: "/images/banners/web-dev-banner.png",
+    backgroundStyle: "object-cover object-center bg-blend-overlay bg-black/40"
   },
   {
     id: 4,
-    content: <WebDevSkills />,
+    content: <CloudDevOpsSkills />,
     className: "md:col-span-2 min-h-[300px]",
-    thumbnail: "/images/skills/next-js.svg",
+    thumbnail: "/images/banners/cloud-devops-banner.png",
+    backgroundStyle: "object-cover object-center bg-blend-overlay bg-black/40"
   },
 ];
 

@@ -9,6 +9,7 @@ type Card = {
   content: JSX.Element | React.ReactNode | string;
   className: string;
   thumbnail: string;
+  backgroundStyle?: string;
 };
 
 export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
@@ -67,7 +68,8 @@ const ImageComponent = ({ card }: { card: Card }) => {
       height="500"
       width="500"
       className={cn(
-        "object-cover object-top absolute inset-0 h-full w-full transition duration-200"
+        card.backgroundStyle || "object-contain",
+        "absolute inset-0 h-full w-full transition duration-200"
       )}
       alt="thumbnail"
     />
