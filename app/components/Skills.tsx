@@ -3,14 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import Particles from './Particles';
-import { Logos3 } from './ui/logos3';
-import { 
-  dataEngineeringDemo, 
-  aiMlDemo, 
-  cloudDevOpsDemo, 
-  webDevDemo 
-} from './blocks/logos3-demo';
+import SkillsCategories from './SkillsCategories';
 
 export default function Skills() {
   const { ref, inView } = useInView({
@@ -19,42 +12,14 @@ export default function Skills() {
   });
   
   return (
-    <div className="overflow-hidden" id="skills">
-      <div className="bg-gradient-to-b from-black/90 to-primary/90 py-24">
+    <section className="overflow-hidden" id="skills">
+      <div className="bg-gradient-to-b from-black/90 to-primary/90 py-12">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center">
-            <h2 className="text-4xl font-bold text-center tracking-tighter mb-10 text-white">
-              Technical Skills
-            </h2>
-            <div className="w-full flex flex-col space-y-12">
-              <Logos3 
-                {...dataEngineeringDemo} 
-                speed={0.75} 
-                direction="forward" 
-                startDelay={0}
-              />
-              <Logos3 
-                {...aiMlDemo} 
-                speed={1.1} 
-                direction="backward" 
-                startDelay={1200}
-              />
-              <Logos3 
-                {...cloudDevOpsDemo} 
-                speed={0.85} 
-                direction="forward" 
-                startDelay={600}
-              />
-              <Logos3 
-                {...webDevDemo} 
-                speed={0.95} 
-                direction="backward" 
-                startDelay={300}
-              />
-            </div>
+          <div ref={ref} className="flex flex-col items-center">
+            <SkillsCategories />
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 } 
