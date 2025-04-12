@@ -1,4 +1,4 @@
-import { SkillsGridDemo } from "../../components/ui/skills-grid-demo";
+import { SkillsGridDemo } from "@/app/components/ui/skills-grid-demo";
 
 export default function SkillsDemoPage() {
   return <SkillsGridDemo />;
