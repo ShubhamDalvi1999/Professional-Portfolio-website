@@ -36,7 +36,7 @@ export const dataEngineeringLogos = [
     category: "Data Engineering"
   },
   {
-    src: "/images/skills/azure.jpg",
+    src: "/images/skills/azure.png",
     alt: "Microsoft Azure",
     width: 80,
     height: 80,
@@ -54,7 +54,7 @@ export const aiMlLogos = [
     category: "AI & Machine Learning"
   },
   {
-    src: "/images/skills/powerbi.jpg",
+    src: "/images/skills/powerbi.svg",
     alt: "Power BI",
     width: 80,
     height: 80,
@@ -75,7 +75,7 @@ export const aiMlLogos = [
     category: "AI & Machine Learning"
   },
   {
-    src: "/images/skills/azure.jpg",
+    src: "/images/skills/azure.png",
     alt: "Microsoft Azure",
     width: 80,
     height: 80,
@@ -93,7 +93,7 @@ export const aiMlLogos = [
 // Cloud & DevOps logos
 export const cloudDevOpsLogos = [
   {
-    src: "/images/skills/azure.jpg",
+    src: "/images/skills/azure.png",
     alt: "Microsoft Azure",
     width: 80,
     height: 80,

@@ -63,7 +63,7 @@ export default function NavBar() {
             >
               <Link 
                 href="#contact" 
-                className="py-1 px-3 sm:py-2 sm:px-6 rounded-full border border-white/70 bg-transparent text-white text-sm md:text-base uppercase tracking-wide hover:bg-white/10 transition-colors whitespace-nowrap"
+                className="py-1 px-3 sm:py-2 sm:px-6 rounded-full border border-amber-400/70 bg-transparent text-white text-sm md:text-base uppercase tracking-wide hover:bg-white/10 transition-colors whitespace-nowrap animate-pulse-glow"
               >
                 Contact Me
               </Link>

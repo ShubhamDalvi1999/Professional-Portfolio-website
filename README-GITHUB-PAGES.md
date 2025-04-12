@@ -44,4 +44,31 @@ This will generate the static files in the `out` directory, which is what will b
 If you encounter issues with images or paths:
 - Check that `next.config.js` has the correct `basePath` configuration
 - Ensure images are using relative paths or the `next/image` component
-- Make sure the `.nojekyll` file exists in the `out` directory (created by the deploy script) 
+- Make sure the `.nojekyll` file exists in the `out` directory (created by the deploy script)
+
+## Performance Monitoring
+
+This site uses [Vercel Speed Insights](https://vercel.com/docs/speed-insights) to monitor and analyze performance metrics. Speed Insights automatically collects Web Vitals and other performance data from real users, providing:
+
+- Core Web Vitals monitoring (LCP, FID, CLS)
+- Real user performance data
+- Page-by-page analysis
+- No impact on site performance
+
+The SpeedInsights component is added in the root layout file:
+
+```tsx
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
+// In your RootLayout component:
+return (
+  <html>
+    <body>
+      {children}
+      <SpeedInsights />
+    </body>
+  </html>
+);
+```
+
+Note that this feature will work best when deployed to Vercel, but it also provides performance insights when deployed on GitHub Pages. 

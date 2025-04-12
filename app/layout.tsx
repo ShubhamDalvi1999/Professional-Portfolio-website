@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Roboto_Mono } from 'next/font/google';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import './globals.css';
 import './fonts.css'; // Import local font fallbacks
 
@@ -32,6 +33,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${robotoMono.variable}`}>
       <body className="bg-primary text-text min-h-screen">
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
