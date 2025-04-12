@@ -80,7 +80,7 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-24 relative bg-secondary">
+    <section id="projects" className="py-24 relative bg-black">
       <div className="container-section">
         <motion.div
           ref={ref}

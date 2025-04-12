@@ -45,8 +45,8 @@ export default function SkillsCategories() {
   });
 
   return (
-    <div className="py-16">
-      <h2 className="text-4xl font-bold text-center tracking-tighter mb-16 text-white">
+    <div className="py-12">
+      <h2 className="text-4xl font-bold text-center tracking-tighter mb-12 text-white">
         Technical Skills
       </h2>
       
@@ -55,13 +55,10 @@ export default function SkillsCategories() {
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.6 }}
-        className="space-y-32"
+        className="space-y-16"
       >
         {/* Interactive skills grid showcasing main skill categories */}
-        <div className="pb-8">
-          <h3 className="text-2xl font-semibold text-center text-accent mb-12">
-            Click on a skill area to learn more
-          </h3>
+        <div className="pb-4">
           <SkillsGridDemo />
         </div>
         
@@ -130,8 +127,8 @@ function DetailedSkillsSection() {
   ];
 
   return (
-    <div className="space-y-24">
-      <h3 className="text-2xl font-semibold text-center text-accent mb-16">
+    <div className="space-y-12">
+      <h3 className="text-2xl font-semibold text-center text-accent mb-8">
         Detailed Skill Breakdown
       </h3>
       {skillCategories.map((category, index) => (
@@ -160,18 +157,18 @@ function CategorySection({ category, index }: CategorySectionProps) {
   const layoutClass = isEven ? 'md:flex-row' : 'md:flex-row-reverse';
   
   return (
-    <div ref={ref} className="container mx-auto px-4">
-      <div className={`flex flex-col ${layoutClass} gap-8 items-center`}>
+    <div ref={ref} className="container mx-auto px-4 mb-8">
+      <div className={`flex flex-col ${layoutClass} gap-6 items-center`}>
         <motion.div 
           className="md:w-1/3 text-center md:text-left"
           initial={{ opacity: 0, x: isEven ? -50 : 50 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="text-3xl font-bold mb-6 text-accent">
+          <h3 className="text-3xl font-bold mb-4 text-accent">
             {category.title}
           </h3>
-          <div className="h-1 w-20 bg-accent mx-auto md:mx-0 mb-6"></div>
+          <div className="h-1 w-20 bg-accent mx-auto md:mx-0 mb-4"></div>
           <p className="text-text-dim text-lg">
             {getDescriptionForCategory(category.id)}
           </p>
@@ -211,9 +208,9 @@ function SkillsGrid({ skills, isVisible, categoryId }: SkillsGridProps) {
   };
 
   return (
-    <div className="w-full h-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 relative">
+    <div className="w-full h-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-2 relative">
       {skills.map((skill, i) => (
-        <div key={i} className="min-h-[180px]">
+        <div key={i} className="min-h-[160px]">
           <motion.div
             onClick={() => handleClick(skill)}
             layoutId={`skill-${categoryId}-${skill.name}`}
@@ -252,9 +249,9 @@ const SkillImage = ({ skill, categoryId }: { skill: Skill, categoryId: string })
   return (
     <motion.div
       layoutId={`image-${categoryId}-${skill.name}`}
-      className="relative h-full w-full flex flex-col items-center justify-center p-3"
+      className="relative h-full w-full flex flex-col items-center justify-center p-2"
     >
-      <div className="relative h-16 w-16 mb-2">
+      <div className="relative h-14 w-14 mb-1">
         <Image
           src={skill.image}
           alt={skill.name}
@@ -262,7 +259,7 @@ const SkillImage = ({ skill, categoryId }: { skill: Skill, categoryId: string })
           className="object-contain"
         />
       </div>
-      <p className="text-sm text-white text-center font-medium">{skill.name}</p>
+      <p className="text-xs text-white text-center font-medium">{skill.name}</p>
     </motion.div>
   );
 };
