@@ -1,19 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        primary: '#050505',        // Darker background
-        secondary: '#0F0F0F',      // Secondary backgrounds
-        accent: '#F59E0B',         // Main amber accent (amber-500)
+        primary: '#0A0A0A',        // Darker background
+        secondary: '#1A1A1A',      // Secondary backgrounds
+        accent: '#FFB86C',         // Main amber accent (amber-500)
         'accent-alt': '#B45309',   // Secondary accent (amber-700)
         'accent-dark': '#78350F',  // Darker amber (amber-900)
         text: '#F8F8F8',           // Main text color
         'text-dim': '#A0A0A0',     // Dimmed text
-        'cosmic-blue': '#1E40AF',  // Blue for cosmic theme elements
+        'cosmic-blue': '#1E3A8A',  // Blue for cosmic theme elements
         background: '#050505',     // Default background color
         foreground: '#F8F8F8',     // Default foreground color
         muted: {
@@ -35,6 +37,7 @@ module.exports = {
         'glow': 'glow 3s ease-in-out infinite',
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'auto-scroll': 'auto-scroll 60s linear infinite',
+        'pulse-glow': 'pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         float: {
@@ -48,6 +51,14 @@ module.exports = {
         'auto-scroll': {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-100%)' },
+        },
+        'pulse-glow': {
+          '0%, 100%': {
+            'box-shadow': '0 0 10px rgba(255, 184, 108, 0.4), 0 0 20px rgba(255, 184, 108, 0.3)',
+          },
+          '50%': {
+            'box-shadow': '0 0 30px rgba(255, 184, 108, 0.6), 0 0 50px rgba(255, 184, 108, 0.4)',
+          },
         },
       },
       backgroundImage: {
