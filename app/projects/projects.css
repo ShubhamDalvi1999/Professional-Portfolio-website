@@ -1,0 +1,121 @@
+/* Projects page specific styles */
+
+.projects-page {
+  background-color: var(--bg-page) !important;
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+.projects-page h1,
+.projects-page h2 {
+  color: var(--text-primary);
+}
+
+.projects-page p {
+  color: var(--text-secondary);
+}
+
+/* Make sure the accent color is applied correctly */
+.projects-page .text-accent-1 {
+  color: var(--accent-1);
+}
+
+/* Search component styles */
+.projects-search input {
+  background-color: var(--bg-card);
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+
+.projects-search input:focus {
+  border-color: var(--accent-1);
+  box-shadow: 0 0 0 2px rgba(124, 93, 250, 0.3);
+  animation: none;
+}
+
+.projects-search button {
+  background-color: var(--bg-card);
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+
+.projects-search button:hover {
+  border-color: var(--accent-1);
+}
+
+.projects-search button.active {
+  border-color: var(--accent-1);
+}
+
+/* Dropdown menus */
+.projects-search .dropdown-menu {
+  background-color: var(--bg-card);
+  border-color: var(--border);
+}
+
+.projects-search .dropdown-item:hover {
+  background-color: var(--bg-card-hover);
+}
+
+/* Project card styles */
+.project-card {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.project-card:hover {
+  background-color: var(--bg-card-hover) !important;
+}
+
+.project-card h3 {
+  color: var(--text-primary);
+}
+
+.project-card p {
+  color: var(--text-secondary);
+}
+
+/* Category tags */
+.project-card .category-tag,
+.category-tag {
+  color: var(--text-secondary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+}
+
+/* Technology tags */
+.project-card .tech-tag,
+.tech-tag {
+  color: var(--text-secondary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+}
+
+/* Details button/link */
+.project-card .details-btn {
+  color: var(--accent-1);
+  border-bottom: 1px solid transparent;
+}
+
+.project-card .details-btn:hover {
+  color: var(--accent-1);
+  border-color: var(--accent-1);
+}
+
+/* GitHub link */
+.project-card .github-link {
+  color: var(--text-secondary);
+}
+
+.project-card .github-link:hover {
+  color: var(--text-primary);
+}
+
+/* Clear filters button */
+.projects-search .clear-btn {
+  border-color: var(--accent-3);
+  color: var(--accent-3);
+} 
