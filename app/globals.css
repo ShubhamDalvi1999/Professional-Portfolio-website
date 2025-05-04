@@ -6,6 +6,17 @@
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 0, 0, 0;
+  
+  /* Project page color palette */
+  --bg-page: #0C0E17;
+  --bg-card: #1A1F2A;
+  --bg-card-hover: #242B3D;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A0A8B3;
+  --border: #2E3440;
+  --accent-1: #7C5DFA; /* primary action */
+  --accent-2: #3FBFF5; /* category tags */
+  --accent-3: #FF6F61; /* tech tags */
 }
 
 body {
