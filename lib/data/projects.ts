@@ -76,15 +76,15 @@ export const projects: Project[] = [
     }
   },
   {
-    id: "modern-ecommerce-platform",
-    title: "Modern E-commerce Platform",
-    shortDescription: "Scalable e-commerce solution with microservices architecture",
-    description: "Designed and implemented a modern e-commerce platform using a microservices architecture. The platform features product management, shopping cart functionality, secure payment processing, order management, and user accounts. Built with a responsive React frontend and Node.js backend services, using MongoDB for persistence and Redis for caching.",
-    category: "Software Engineering",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Redis", "Docker", "Stripe API", "JWT", "REST API"],
+    id: "real-time-azure-streaming-pipeline",
+    title: "Real-Time Streaming Data Pipeline with Azure",
+    shortDescription: "End-to-end real-time data streaming pipeline using Azure Event Hubs, Databricks, and Delta Lake.",
+    description: "This project demonstrates an end-to-end real-time data streaming pipeline on Azure. It simulates weather data, ingests it via Event Hubs, processes it in Databricks using the medallion architecture, and stores results in Delta Lake for analytics and Power BI visualization.",
+    category: "Data Engineering",
+    technologies: ["Azure", "Event Hubs", "Databricks", "Delta Lake", "Python", "PySpark", "Power BI"],
     featured: true,
     links: {
-      github: "https://github.com/username/modern-ecommerce-platform"
+      github: "https://github.com/username/real-time-azure-streaming-pipeline"
     }
   },
   {
