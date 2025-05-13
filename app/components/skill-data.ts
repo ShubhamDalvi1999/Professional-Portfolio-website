@@ -1,7 +1,7 @@
 // Data Engineering logos
 export const dataEngineeringLogos = [
   {
-    src: "/images/skills/databricks.png",
+    src: "/images/skills/databrick.jpg",
     alt: "Databricks",
     width: 80,
     height: 80,
@@ -54,14 +54,14 @@ export const aiMlLogos = [
     category: "AI & Machine Learning"
   },
   {
-    src: "/images/skills/powerbi.svg",
+    src: "/images/skills/power bi.png",
     alt: "Power BI",
     width: 80,
     height: 80,
     category: "AI & Machine Learning"
   },
   {
-    src: "/images/skills/databricks.png",
+    src: "/images/skills/databrick.jpg",
     alt: "Databricks",
     width: 80,
     height: 80,
@@ -100,7 +100,7 @@ export const cloudDevOpsLogos = [
     category: "Cloud & DevOps"
   },
   {
-    src: "/images/skills/databricks.png",
+    src: "/images/skills/databrick.jpg",
     alt: "Databricks",
     width: 80,
     height: 80,

@@ -77,57 +77,83 @@ function DetailedSkillsSection() {
       id: 'data-engineering',
       title: 'Data Engineering',
       skills: [
-        { name: 'Databricks', image: '/images/skills/databricks.svg' },
-        { name: 'Apache Spark', image: '/images/skills/spark.png' },
+        // Core Platforms & Engines
+        { name: 'Databricks', image: '/images/skills/databrick.jpg' },
+        { name: 'Apache Spark', image: '/images/skills/apache-spark.png' },
+        { name: 'PySpark', image: '/images/skills/pyspark.jpg' },
+        { name: 'Flink', image: '/images/skills/flink.png' },
+        { name: 'DLT', image: '/images/skills/DLT.png' },
+        { name: 'Airflow', image: '/images/skills/airflow.png' },
+        // Data Storage & Warehousing
         { name: 'Snowflake', image: '/images/skills/snowflake.png' },
-        { name: 'AWS Glue', image: '/images/skills/glue.svg' },
-        { name: 'Redshift', image: '/images/skills/redshift.png' },
-        { name: 'DBT', image: '/images/skills/dbt.svg' },
-        { name: 'Apache Kafka', image: '/images/skills/kafka.svg' },
-        { name: 'Airflow', image: '/images/skills/airflow.svg' },
         { name: 'Delta Lake', image: '/images/skills/delta-lake.png' },
-        { name: 'Apache Iceberg', image: '/images/skills/Apache_Iceberg.svg' },
+        { name: 'Apache Iceberg', image: '/images/skills/Apache_Iceberg.png' },
+        // ETL & Transformation
+        { name: 'AWS Glue', image: '/images/skills/glue.png' },
+        { name: 'DBT', image: '/images/skills/dbt.png' },
+        // Streaming & Messaging
+        { name: 'Apache Kafka', image: '/images/skills/kafka.png' },
+        // Analytics & Visualization
+        { name: 'PowerBI', image: '/images/skills/power bi.png' },
       ]
     },
     {
       id: 'ai-ml',
       title: 'AI & Machine Learning',
       skills: [
+        // Languages & Libraries
         { name: 'Python', image: '/images/skills/python.png' },
-        { name: 'Large Language Models', image: '/images/skills/llm.svg' },
-        { name: 'LangChain', image: '/images/skills/langchain.svg' },
-        { name: 'Pandas', image: '/images/skills/pandas.svg' },
-        { name: 'PowerBI', image: '/images/skills/powerbi.svg' },
+        { name: 'Pandas', image: '/images/skills/pandas.png' },
+        // ML/AI Frameworks & Models
+        { name: 'Large Language Models', image: '/images/skills/llm.png' },
+        { name: 'Transformers', image: '/images/skills/transformers.png' },
+        { name: 'LangChain', image: '/images/skills/langchain.jpg' },
         { name: 'RAG', image: '/images/skills/rag.png' },
+        // Graph & Data Science
+        { name: 'Neo4j', image: '/images/skills/neo4j.jpg' },
+        { name: 'Clustering', image: '/images/skills/clustering.png' },
+        { name: 'Regression ML', image: '/images/skills/regression-ML.png' },
+        // Visualization & Analytics
+        { name: 'PowerBI', image: '/images/skills/power bi.png' },
       ]
     },
     {
       id: 'cloud-devops',
       title: 'Cloud & DevOps',
       skills: [
+        // Cloud Providers
+        { name: 'AWS', image: '/images/skills/AWS.png' },
+        { name: 'Azure', image: '/images/skills/azure.png' },
+        // Containers & Orchestration
         { name: 'Docker', image: '/images/skills/docker.png' },
-        { name: 'AWS Lambda', image: '/images/skills/lambda.svg' },
+        { name: 'Kubernetes', image: '/images/skills/Kubernetes.png' },
+        // Serverless & Databases
+        { name: 'AWS Lambda', image: '/images/skills/lambda.jpg' },
         { name: 'DynamoDB', image: '/images/skills/dynamo-db.png' },
         { name: 'MongoDB', image: '/images/skills/mongodb.svg' },
-        { name: 'AWS', image: '/images/skills/AWS.svg' },
-        { name: 'Azure', image: '/images/skills/azure.png' },
+        { name: 'PostgreSQL', image: '/images/skills/Postgresql.png' },
+        // Collaboration
+        { name: 'GitHub', image: '/images/skills/git-hub-logo.jpg' },
       ]
     },
     {
       id: 'web-development',
       title: 'Web Development',
       skills: [
+        // Frontend Frameworks
         { name: 'React.js', image: '/images/skills/react-js.png' },
-        { name: 'Next.js', image: '/images/skills/next-js.svg' },
-        { name: 'FastAPI', image: '/images/skills/FastAPI.svg' },
-        { name: 'Flask', image: '/images/skills/Flask.svg' },
-        { name: 'RESTful APIs', image: '/images/skills/restful-api.png' },
+        { name: 'Next.js', image: '/images/skills/next-js.png' },
+        // Backend Frameworks
+        { name: 'FastAPI', image: '/images/skills/FastAPI.png' },
+        { name: 'Flask', image: '/images/skills/Flask.png' },
+        // API Design
+        { name: 'RESTful APIs', image: '/images/skills/restul-api.jpg' },
       ]
     }
   ];
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-20">
       <h3 className="text-2xl font-semibold text-center text-accent mb-8">
         Detailed Skill Breakdown
       </h3>
@@ -208,9 +234,9 @@ function SkillsGrid({ skills, isVisible, categoryId }: SkillsGridProps) {
   };
 
   return (
-    <div className="w-full h-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-2 relative">
+    <div className="w-full h-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-1 relative">
       {skills.map((skill, i) => (
-        <div key={i} className="min-h-[160px]">
+        <div key={i} className="min-h-[120px]">
           <motion.div
             onClick={() => handleClick(skill)}
             layoutId={`skill-${categoryId}-${skill.name}`}
@@ -251,7 +277,7 @@ const SkillImage = ({ skill, categoryId }: { skill: Skill, categoryId: string })
       layoutId={`image-${categoryId}-${skill.name}`}
       className="relative h-full w-full flex flex-col items-center justify-center p-2"
     >
-      <div className="relative h-14 w-14 mb-1">
+      <div className="relative h-16 w-20 mb-1">
         <Image
           src={skill.image}
           alt={skill.name}
@@ -329,29 +355,38 @@ function getSkillDescription(skillName: string): string {
     'Apache Spark': 'Fast engine for large-scale data processing and analytics.',
     'Snowflake': 'Cloud data platform for storage, processing, and analytics workloads.',
     'AWS Glue': 'Serverless data integration service for ETL workflows.',
-    'Redshift': 'Fully managed data warehouse service for analytics at scale.',
     'DBT': 'Data transformation tool for analytics engineering workflows.',
     'Apache Kafka': 'Distributed event streaming platform for high-throughput data pipelines.',
     'Airflow': 'Platform to programmatically author, schedule, and monitor workflows.',
     'Delta Lake': 'Open-source storage layer that brings reliability to data lakes.',
     'Apache Iceberg': 'Open table format for huge analytic datasets.',
+    'DLT': 'Data transformation tool for analytics engineering workflows.',
+    'PostgreSQL': 'Open-source relational database management system.',
+    'PySpark': 'Python API for Apache Spark.',
+    'Flink': 'Distributed stream data flow engine for big data processing.',
     'Python': 'Programming language for data science, ML, and application development.',
     'Large Language Models': 'AI models that understand and generate human language.',
     'LangChain': 'Framework for developing applications powered by language models.',
     'Pandas': 'Data analysis and manipulation library for Python.',
     'PowerBI': 'Business analytics service for interactive visualizations.',
     'RAG': 'Retrieval-Augmented Generation combining search with generative AI.',
+    'Neo4j': 'Graph database for storing and querying data.',
     'Docker': 'Platform for developing, shipping, and running applications in containers.',
     'AWS Lambda': 'Serverless compute service for running code without provisioning servers.',
     'DynamoDB': 'Fast and flexible NoSQL database service for any scale.',
     'MongoDB': 'Document database for modern application development.',
     'AWS': 'Comprehensive cloud computing platform and services.',
     'Azure': "Microsoft's cloud computing service for building, testing, deploying, and managing applications.",
+    'Kubernetes': 'Open-source platform for managing containerized workloads and services.',
     'React.js': 'JavaScript library for building user interfaces.',
     'Next.js': 'React framework for production-ready applications.',
     'FastAPI': 'Modern, fast web framework for building APIs with Python.',
     'Flask': 'Lightweight WSGI web application framework in Python.',
     'RESTful APIs': 'Architectural style for designing networked applications.',
+    'Clustering': 'Technique used to group similar data points together.',
+    'Regression ML': 'Type of machine learning used for predicting continuous outcomes.',
+    'Transformers': 'AI models used for natural language processing and generation.',
+    'GitHub': 'Platform for version control and collaboration.',
   };
   
   return descriptions[skillName] || 'Advanced technology skill for modern software development.';

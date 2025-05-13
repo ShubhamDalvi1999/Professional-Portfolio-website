@@ -30,46 +30,16 @@ function ProjectCard({ title, description, gradient, delay, technologies, github
       whileHover={{ scale: 1.02 }}
     >
       <div className={`p-6 h-full flex flex-col ${gradient}`}>
-        <h3 className="text-xl font-bold mb-2">{title}</h3>
-        <p className="text-text-dim mb-4">{description}</p>
-        
-        {technologies && technologies.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-6">
-            {technologies.slice(0, 3).map((tech) => (
-              <span key={tech} className="text-xs px-2 py-1 rounded-full bg-black/50 border border-border/50">
-                {tech}
-              </span>
-            ))}
-            {technologies.length > 3 && (
-              <span className="text-xs px-2 py-1 rounded-full bg-black/50 border border-border/50">
-                +{technologies.length - 3} more
-              </span>
-            )}
-          </div>
-        )}
-        
+        <h3 className={`text-xl font-bold mb-2 ${delay === 2 ? 'text-black' : ''}`}>{title}</h3>
+        <p className={`mb-4 ${delay === 2 ? 'text-neutral-800' : 'text-text-dim'}`}>{description}</p>
         <div className="mt-auto flex gap-3">
-          {githubLink && (
-            <a
-              href={githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 text-sm text-text-dim hover:text-white transition-colors"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-              </svg>
-              GitHub
-            </a>
-          )}
-          
           <Link
-            href={`/projects`}
-            className="ml-auto flex items-center gap-1 text-sm text-accent hover:text-white transition-colors"
+            href="/projects"
+            className={`ml-auto flex items-center gap-1 text-sm ${delay === 2 ? 'text-neutral-900' : 'text-accent'} hover:text-white transition-colors`}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M5 12h14"></path>
-              <path d="M12 5l7 7-7 7"></path>
+            <svg aria-label="Details arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14" />
+              <path d="M12 5l7 7-7 7" />
             </svg>
             Details
           </Link>
@@ -89,10 +59,11 @@ export default function Projects() {
   const featuredProjects = getFeaturedProjects();
 
   const cardColors = [
-    "bg-gradient-to-br from-amber-950/80 to-amber-900/40 border border-amber-800/30",
-    "bg-gradient-to-br from-amber-900/50 to-amber-800/40 border border-amber-700/30",
-    "bg-gradient-to-br from-amber-800/50 to-amber-700/40 border border-amber-600/30",
-    "bg-gradient-to-br from-amber-700/50 to-amber-600/40 border border-amber-500/30",
+    "bg-[#6e3d2c] border border-[#6e3d2c]",
+    "bg-[#e5c8a2] border border-[#e5c8a2]",
+    "bg-[#2c1a12] border border-[#2c1a12]",
+    "bg-[#a87145] border border-[#a87145]",
+    "bg-[#472918] border border-[#472918]",
   ];
 
   return (
@@ -128,11 +99,9 @@ export default function Projects() {
             <ProjectCard
               key={project.id}
               title={project.title}
-              description={project.shortDescription || project.description.substring(0, 100) + '...'}
+              description={project.shortDescription || `${project.description.substring(0, 100)}...`}
               gradient={cardColors[index % cardColors.length]}
               delay={index + 1}
-              technologies={project.technologies}
-              githubLink={project.links?.github}
             />
           ))}
         </div>

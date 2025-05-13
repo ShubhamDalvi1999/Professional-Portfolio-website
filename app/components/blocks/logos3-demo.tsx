@@ -5,7 +5,7 @@ const dataEngineeringLogos = [
   {
     id: "databricks-1",
     description: "Databricks",
-    image: "/images/skills/databricks.png",
+    image: "/images/skills/databrick.jpg",
     className: "w-full h-full object-contain",
   },
   {
@@ -47,7 +47,7 @@ const dataEngineeringLogos = [
   {
     id: "kafka-1",
     description: "Apache Kafka",
-    image: "/images/skills/kafka.svg",
+    image: "/images/skills/kafka.png",
     className: "w-full h-full object-contain",
   }
 ];
@@ -63,25 +63,25 @@ const aiMlLogos = [
   {
     id: "pandas-1",
     description: "Pandas",
-    image: "/images/skills/pandas.svg",
+    image: "/images/skills/pandas.png",
     className: "w-full h-full object-contain",
   },
   {
     id: "powerbi-1",
     description: "Power BI",
-    image: "/images/skills/powerbi.svg",
+    image: "/images/skills/power bi.png",
     className: "w-full h-full object-contain",
   },
   {
     id: "llm-1",
     description: "Large Language Models",
-    image: "/images/skills/llm.svg",
+    image: "/images/skills/llm.png",
     className: "w-full h-full object-contain",
   },
   {
     id: "langchain-1",
     description: "LangChain",
-    image: "/images/skills/langchain.svg",
+    image: "/images/skills/langchain.jpg",
     className: "w-full h-full object-contain",
   },
   {
@@ -115,7 +115,7 @@ const cloudDevOpsLogos = [
   {
     id: "lambda-1",
     description: "AWS Lambda",
-    image: "/images/skills/lambda.svg",
+    image: "/images/skills/lambda.jpg",
     className: "w-full h-full object-contain",
   },
   {

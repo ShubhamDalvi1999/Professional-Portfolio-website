@@ -65,13 +65,13 @@ const skillCards = [
     id: 1,
     content: <DataEngineeringContent />,
     className: "md:col-span-2 min-h-[250px]",
-    thumbnail: "/images/skills/databricks.png",
+    thumbnail: "/images/skills/databrick.jpg",
   },
   {
     id: 2,
     content: <AiMlContent />,
     className: "col-span-1 min-h-[250px]",
-    thumbnail: "/images/skills/llm.svg",
+    thumbnail: "/images/skills/llm.png",
   },
   {
     id: 3,
@@ -83,7 +83,7 @@ const skillCards = [
     id: 4,
     content: <WebDevContent />,
     className: "md:col-span-2 min-h-[250px]",
-    thumbnail: "/images/skills/next-js.svg",
+    thumbnail: "/images/skills/next-js.png",
   },
 ];
 

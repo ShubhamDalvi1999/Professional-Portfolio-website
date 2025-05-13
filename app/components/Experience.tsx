@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import type React from 'react';
 import { Timeline } from './ui/timeline';
 import { motion } from 'framer-motion';
 import Particles from './Particles';
@@ -14,25 +14,30 @@ const BulletPoint = ({ children }: { children: React.ReactNode }) => (
 
 const ExperienceBlock = ({ 
   position, 
+  techStack,
   company, 
   period, 
   bullets 
 }: { 
   position: string; 
+  techStack?: string;
   company: string; 
   period: string; 
   bullets: string[] 
 }) => (
   <div className="mb-8 cosmic-glow">
-    <h4 className="text-white text-lg md:text-xl font-bold mb-1">{position}</h4>
+    <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-1">
+      <h4 className="text-white text-lg md:text-xl font-bold">{position}</h4>
+      {techStack && (
+        <span className="text-text-dim text-sm md:text-base font-medium md:text-right mt-1 md:mt-0">{techStack}</span>
+      )}
+    </div>
     <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3 mb-4">
       <span className="text-amber-400 font-medium">{company}</span>
-      <span className="hidden md:block text-text-dim opacity-60">•</span>
-      <span className="text-text-dim text-sm md:text-base italic">{period}</span>
     </div>
     <div className="mt-4">
-      {bullets.map((bullet, index) => (
-        <BulletPoint key={index}>{bullet}</BulletPoint>
+      {bullets.map((bullet) => (
+        <BulletPoint key={bullet}>{bullet}</BulletPoint>
       ))}
     </div>
   </div>
@@ -41,17 +46,18 @@ const ExperienceBlock = ({
 export default function Experience() {
   const experienceData = [
     {
-      title: "2024",
+      title: "2024-Present",
       content: (
         <ExperienceBlock
-          position="Data Engineer Python - Pipeline Design – Snowflake"
+          position="Founding Data Engineer"
+          techStack="Snowflake - Python - Kafka"
           company="SkillSwap (StartUp)"
           period="Aug 2024 — Present"
           bullets={[
-            "Engineered a scalable, cloud-based data pipeline to power a personalized course recommendation system for an ed-tech platform, leveraging microservices and Kubernetes for scaling services.",
-            "Contributed to schema design decisions and data modeling for the platform, considering future scale and reliability.",
+            "Lead design and integration of Snowflake data warehousing with DBT as transformation layer into the existing system for customer usage trend analysis and revenue reporting.",
+            "Engineered and prototyped a scalable, cloud-native data pipeline to support a personalized learning experience on an ed-tech platform, utilizing Retrieval-Augmented Generation (RAG) and GenAI-based recommendation systems.",
             "Pioneered event-driven data ingestion via API Gateway, Lambda, and DynamoDB, enabling real-time personalization for 5,000+ platform users and resulting in higher course completion rates.",
-            "Designed and integrated Snowflake into the existing system for customer usage trend analysis, retention checks, and revenue reporting."
+            "Working on building a fraud detection system for payments on the platform using Kafka 4.0 with Kraft mode"
           ]}
         />
       ),
@@ -60,7 +66,8 @@ export default function Experience() {
       title: "2022-2024",
       content: (
         <ExperienceBlock
-          position="Data Engineer Azure - Pyspark – SQL"
+          position="Data Engineer"
+          techStack="Azure - PySpark - SQL"
           company="Accenture"
           period="Aug 2022 — Aug 2024"
           bullets={[
@@ -78,14 +85,15 @@ export default function Experience() {
       title: "2021-2022",
       content: (
         <ExperienceBlock
-          position="Data Engineer Associate Azure - CICD - Migration"
+          position="Data Engineer Associate"
+          techStack="Azure - CICD - Migration"
           company="Accenture"
           period="June 2021 — Aug 2022"
           bullets={[
             "Migrated large volumes of legacy data to Azure SQL Server using Informatica, performing efficient data extraction and leveraging SQL for data transformation ensuring accuracy and consistency.",
             "Monitored and scheduled Airflow pipelines, generating key reporting data and ensuring robust data management for email alerts on pipeline failures and successes.",
             "Developed and tested Flask-based REST API endpoints, using Postman, identifying and resolving integration issues, which led to a 25% reduction in production errors. Conducted peer reviews of code written by other developers.",
-            "Led a team of 2 on 10+ agile projects, driving growth of about 242% in post-pilot deployments for 600 stores."
+            "Led a team of 2 on 10+ API development projects, driving growth of about 242% in post-pilot deployments for 600+ stores."
           ]}
         />
       ),
