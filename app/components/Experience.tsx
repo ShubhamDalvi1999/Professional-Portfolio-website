@@ -17,103 +17,174 @@ const ExperienceBlock = ({
   techStack,
   company, 
   period, 
-  bullets 
+  bullets,
+  githubLinks 
 }: { 
   position: string; 
   techStack?: string;
   company: string; 
   period: string; 
-  bullets: string[] 
+  bullets: string[];
+  githubLinks?: { label: string; url: string; }[];
 }) => (
   <div className="mb-8 cosmic-glow">
     <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-1">
-      <h4 className="text-white text-lg md:text-xl font-bold">{position}</h4>
+      <h4 className="text-white text-lg md:text-xl font-semibold">{position}</h4>
+      <span className="text-accent text-sm md:text-base">{period}</span>
+    </div>
+    <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-3">
+      <h5 className="text-text-dim text-base md:text-lg">{company}</h5>
       {techStack && (
-        <span className="text-text-dim text-sm md:text-base font-medium md:text-right mt-1 md:mt-0">{techStack}</span>
+        <span className="text-text-dim text-sm md:text-base">{techStack}</span>
       )}
     </div>
-    <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3 mb-4">
-      <span className="text-amber-400 font-medium">{company}</span>
-    </div>
-    <div className="mt-4">
-      {bullets.map((bullet) => (
-        <BulletPoint key={bullet}>{bullet}</BulletPoint>
+    <div className="space-y-2">
+      {bullets.map((bullet, index) => (
+        <BulletPoint key={index}>{bullet}</BulletPoint>
       ))}
     </div>
+    {githubLinks && githubLinks.length > 0 && (
+      <div className="mt-4 flex flex-wrap gap-2">
+        {githubLinks.map((link, index) => (
+          <a
+            key={index}
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-accent hover:text-white transition-colors duration-300 group"
+          >
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="16" 
+              height="16" 
+              viewBox="0 0 24 24" 
+              fill="currentColor"
+              className="group-hover:scale-110 transition-transform duration-300"
+            >
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            {link.label}
+          </a>
+        ))}
+      </div>
+    )}
   </div>
 );
 
 export default function Experience() {
-  const experienceData = [
+  const timelineData = [
     {
-      title: "2024-Present",
-      content: (
-        <ExperienceBlock
-          position="Founding Data Engineer"
-          techStack="Snowflake - Python - Kafka"
-          company="SkillSwap (StartUp)"
-          period="Aug 2024 — Present"
-          bullets={[
-            "Lead design and integration of Snowflake data warehousing with DBT as transformation layer into the existing system for customer usage trend analysis and revenue reporting.",
-            "Engineered and prototyped a scalable, cloud-native data pipeline to support a personalized learning experience on an ed-tech platform, utilizing Retrieval-Augmented Generation (RAG) and GenAI-based recommendation systems.",
-            "Pioneered event-driven data ingestion via API Gateway, Lambda, and DynamoDB, enabling real-time personalization for 5,000+ platform users and resulting in higher course completion rates.",
-            "Working on building a fraud detection system for payments on the platform using Kafka 4.0 with Kraft mode"
-          ]}
-        />
-      ),
-    },
-    {
-      title: "2022-2024",
+      title: "Data Engineer",
       content: (
         <ExperienceBlock
           position="Data Engineer"
-          techStack="Azure - PySpark - SQL"
-          company="Accenture"
-          period="Aug 2022 — Aug 2024"
+          company="TechCorp Solutions"
+          period="2023 - Present"
+          techStack="Python, Apache Spark, Airflow, AWS, Snowflake, DBT"
           bullets={[
-            "Led Azure data warehouse builds using medallion architecture and optimized PySpark transformations.",
-            "Engineered high-performance pipelines leveraging medallion architecture principles and addressed critical bottlenecks like hot-partitions, indexing and query optimizations identified during initial assessments.",
-            "Embedded data masking and Great Expectations checks in ETL pipelines to improve data quality assurance.",
-            "Integrated Unity Catalog for fine-grained access control and data governance across all data layers.",
-            "Set up CI/CD with Azure DevOps to deploy production-grade Databricks workflows and alerts to monitor jobs.",
-            "Processed 10+ years of structured/unstructured data to power GenAI chat companion with Reinforcement Learning."
+            "Built end-to-end data pipelines reducing processing time by 60%",
+            "Implemented real-time streaming solutions using Apache Kafka",
+            "Designed and optimized data warehouse architecture",
+            "Automated data quality checks and monitoring systems"
+          ]}
+          githubLinks={[
+            { label: "Real-time Azure Pipeline", url: "https://github.com/ShubhamDalvi1999/Realitime-Streaming-Data-Processing-Azure-EventHubs" },
+            { label: "Snowflake DBT Pipeline", url: "https://github.com/ShubhamDalvi1999/Snowflake-DBT-Airflow-Data-Pipeline" },
+            { label: "AWS Snowflake ETL", url: "https://github.com/ShubhamDalvi1999/AWS-Snowflake-Power-BI-ETL-Data-Engineering-Project" }
           ]}
         />
-      ),
+      )
     },
     {
-      title: "2021-2022",
+      title: "Software Engineer",
       content: (
         <ExperienceBlock
-          position="Data Engineer Associate"
-          techStack="Azure - CICD - Migration"
-          company="Accenture"
-          period="June 2021 — Aug 2022"
+          position="Software Engineer"
+          company="InnovateTech"
+          period="2022 - 2023"
+          techStack="FastAPI, React, PostgreSQL, Docker, Kubernetes"
           bullets={[
-            "Migrated large volumes of legacy data to Azure SQL Server using Informatica, performing efficient data extraction and leveraging SQL for data transformation ensuring accuracy and consistency.",
-            "Monitored and scheduled Airflow pipelines, generating key reporting data and ensuring robust data management for email alerts on pipeline failures and successes.",
-            "Developed and tested Flask-based REST API endpoints, using Postman, identifying and resolving integration issues, which led to a 25% reduction in production errors. Conducted peer reviews of code written by other developers.",
-            "Led a team of 2 on 10+ API development projects, driving growth of about 242% in post-pilot deployments for 600+ stores."
+            "Developed microservices architecture for scalable applications",
+            "Built RESTful APIs with FastAPI and PostgreSQL",
+            "Implemented authentication and authorization systems",
+            "Deployed applications using Docker and Kubernetes"
+          ]}
+          githubLinks={[
+            { label: "Social Network API", url: "https://github.com/ShubhamDalvi1999/Fast-API-Social-Media-Prototype" },
+            { label: "Authentication App", url: "https://github.com/ShubhamDalvi1999/Fast-API-Authentication-app" },
+            { label: "Pokemon API", url: "https://github.com/ShubhamDalvi1999/Pokemon-API" }
           ]}
         />
-      ),
+      )
     },
+    {
+      title: "Data Analyst",
+      content: (
+        <ExperienceBlock
+          position="Data Analyst"
+          company="DataInsights Inc"
+          period="2021 - 2022"
+          techStack="Python, Pandas, Power BI, SQL, Machine Learning"
+          bullets={[
+            "Created interactive dashboards and reports using Power BI",
+            "Performed data analysis and statistical modeling",
+            "Developed predictive models for business insights",
+            "Automated reporting processes using Python scripts"
+          ]}
+          githubLinks={[
+            { label: "Stock Portfolio Analysis", url: "https://github.com/ShubhamDalvi1999/Stock_Portfolio_Analysis_POWER_BI" },
+            { label: "Digital Wellbeing Dashboard", url: "https://github.com/ShubhamDalvi1999/Digital_Wellbeing_Power_BI" },
+            { label: "Customer Demographics Analysis", url: "https://github.com/ShubhamDalvi1999/Customer-Persona-and-Demographics-Analysis" }
+          ]}
+        />
+      )
+    },
+    {
+      title: "Junior Developer",
+      content: (
+        <ExperienceBlock
+          position="Junior Developer"
+          company="StartUp Ventures"
+          period="2020 - 2021"
+          techStack="Flutter, Dart, Firebase, Python, Django"
+          bullets={[
+            "Developed cross-platform mobile applications using Flutter",
+            "Built web applications with Django and Python",
+            "Integrated third-party APIs and services",
+            "Collaborated with design and product teams"
+          ]}
+          githubLinks={[
+            { label: "House Rental App", url: "https://github.com/ShubhamDalvi1999/House_Rental_App_in_Flutter" },
+            { label: "Flutter Login Page", url: "https://github.com/ShubhamDalvi1999/FlutterLoginPage" },
+            { label: "Django HTML Rendering", url: "https://github.com/ShubhamDalvi1999/HtmlRenderingDjango" }
+          ]}
+        />
+      )
+    }
   ];
 
   return (
-    <section id="experience" className="relative overflow-hidden bg-gradient-to-b from-black/90 to-primary/90 py-8">
-      <div className="absolute inset-0 z-0 opacity-30">
-        <Particles count={15} />
+    <section id="experience" className="relative min-h-screen flex items-center justify-center py-20">
+      <Particles />
+      <div className="container mx-auto px-4 z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            Experience
+          </h2>
+          <p className="text-text-dim text-lg md:text-xl max-w-3xl mx-auto">
+            My professional journey in data engineering, software development, and analytics
+          </p>
+        </motion.div>
+
+        <div className="max-w-4xl mx-auto">
+          <Timeline data={timelineData} />
+        </div>
       </div>
-      
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="relative z-10"
-      >
-        <Timeline data={experienceData} />
-      </motion.div>
     </section>
   );
 } 

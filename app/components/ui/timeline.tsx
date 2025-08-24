@@ -6,10 +6,15 @@ import {
   motion,
 } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
+import { GitHubLink } from "./github-link";
 
 interface TimelineEntry {
   title: string;
   content: React.ReactNode;
+  githubLinks?: {
+    label: string;
+    url: string;
+  }[];
 }
 
 export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
@@ -79,6 +84,29 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 {item.title}
               </h3>
               {item.content}
+              
+              {/* GitHub Links Section */}
+              {item.githubLinks && item.githubLinks.length > 0 && (
+                <motion.div 
+                  className="mt-6 pt-4 border-t border-accent/20"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                >
+                  <h4 className="text-sm font-semibold text-white mb-3">Related Projects:</h4>
+                  <div className="flex flex-wrap gap-3">
+                    {item.githubLinks.map((link, linkIndex) => (
+                      <GitHubLink 
+                        key={linkIndex}
+                        label={link.label}
+                        url={link.url}
+                        variant="outline"
+                        size="sm"
+                      />
+                    ))}
+                  </div>
+                </motion.div>
+              )}
             </div>
           </motion.div>
         ))}
