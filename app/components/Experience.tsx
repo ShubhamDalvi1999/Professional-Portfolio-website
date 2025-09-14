@@ -74,89 +74,57 @@ const ExperienceBlock = ({
 export default function Experience() {
   const timelineData = [
     {
+      title: "Founding Data & AI Engineer",
+      content: (
+        <ExperienceBlock
+          position="Founding Data & AI Engineer"
+          company="SkillSwap (StartUp) - Ireland"
+          period="Aug 2024 — Present"
+          techStack="Snowflake, Python, AI"
+          bullets={[
+            "Led the team responsible for the data warehousing platform using Snowflake, dbt, analyzing customer usage trends, and revenue KPI reporting. Collaborated with the client to define key business requirements and applied data analysis techniques to improve customer experience and reduce churn.",
+            "Designed and launched a token-based rewards and wallet system for SkillSwap, driving gamification and personalized incentives that increased user engagement by 40% and created a scalable foundation for monetization.",
+            "Developing a scalable recommendation system to enable a personalized learning experience powered by content-based and collaborative filtering, using statistical processing techniques to evaluate similarity measures.",
+            "Implemented AI-driven assignment evaluations using RAG, OpenAI, which evaluated documents in 20 seconds.",
+            "Implemented and hardened a production-grade authentication system with Python, PostgreSQL, React and TypeScript. Integrated OAuth 2.0, JWT with rotating refresh tokens, and RBAC rules, ensuring secure authorization, compliance, and a seamless user experience.",
+            "Designed authorization with RBAC and scope-based policies to ensure that only the courses a user is enrolled in are correctly rendered and accessible, enabling seamless and secure user experiences"
+          ]}
+        />
+      )
+    },
+    {
       title: "Data Engineer",
       content: (
         <ExperienceBlock
           position="Data Engineer"
-          company="TechCorp Solutions"
-          period="2023 - Present"
-          techStack="Python, Apache Spark, Airflow, AWS, Snowflake, DBT"
+          company="Accenture"
+          period="Aug 2022 — Aug 2024"
+          techStack="Databricks, PySpark, Azure"
           bullets={[
-            "Built end-to-end data pipelines reducing processing time by 60%",
-            "Implemented real-time streaming solutions using Apache Kafka",
-            "Designed and optimized data warehouse architecture",
-            "Automated data quality checks and monitoring systems"
-          ]}
-          githubLinks={[
-            { label: "Real-time Azure Pipeline", url: "https://github.com/ShubhamDalvi1999/Realitime-Streaming-Data-Processing-Azure-EventHubs" },
-            { label: "Snowflake DBT Pipeline", url: "https://github.com/ShubhamDalvi1999/Snowflake-DBT-Airflow-Data-Pipeline" },
-            { label: "AWS Snowflake ETL", url: "https://github.com/ShubhamDalvi1999/AWS-Snowflake-Power-BI-ETL-Data-Engineering-Project" }
+            "Led teams on Azure data warehouse builds using medallion architecture, ADF and optimized PySpark transformations on Databricks, resulting in a 50% reduction in ticket resolution time for a Gen AI companion project.",
+            "Engineered high-performance pipelines leveraging medallion architecture principles and addressed critical bottlenecks like hot-partitions, indexing, and query optimizations identified during initial assessments.",
+            "Developed and implemented comprehensive System testing procedures for 5+ ETL pipelines.",
+            "Integrated Unity Catalog (metadata management) for access control and data governance across data layers.",
+            "Set up CI/CD with Azure DevOps to deploy production-grade Databricks workflows and alerts to monitor jobs.",
+            "Processed 10+ years of structured/unstructured data to power GenAI chat companion with Reinforcement Learning.",
+            "Delivered a QA analytics solution using Apache NiFi to ingest test results and defect logs into AWS and built an AWS QuickSight dashboard (pass/fail trends, defect leakage, cycle time) with row-level security, improving real-time visibility and reducing test triage time by 35%."
           ]}
         />
       )
     },
     {
-      title: "Software Engineer",
+      title: "Data Engineer Associate",
       content: (
         <ExperienceBlock
-          position="Software Engineer"
-          company="InnovateTech"
-          period="2022 - 2023"
-          techStack="FastAPI, React, PostgreSQL, Docker, Kubernetes"
+          position="Data Engineer Associate"
+          company="Accenture"
+          period="Jun 2021 — Aug 2022"
+          techStack="Oracle, Python, API"
           bullets={[
-            "Developed microservices architecture for scalable applications",
-            "Built RESTful APIs with FastAPI and PostgreSQL",
-            "Implemented authentication and authorization systems",
-            "Deployed applications using Docker and Kubernetes"
-          ]}
-          githubLinks={[
-            { label: "Social Network API", url: "https://github.com/ShubhamDalvi1999/Fast-API-Social-Media-Prototype" },
-            { label: "Authentication App", url: "https://github.com/ShubhamDalvi1999/Fast-API-Authentication-app" },
-            { label: "Pokemon API", url: "https://github.com/ShubhamDalvi1999/Pokemon-API" }
-          ]}
-        />
-      )
-    },
-    {
-      title: "Data Analyst",
-      content: (
-        <ExperienceBlock
-          position="Data Analyst"
-          company="DataInsights Inc"
-          period="2021 - 2022"
-          techStack="Python, Pandas, Power BI, SQL, Machine Learning"
-          bullets={[
-            "Created interactive dashboards and reports using Power BI",
-            "Performed data analysis and statistical modeling",
-            "Developed predictive models for business insights",
-            "Automated reporting processes using Python scripts"
-          ]}
-          githubLinks={[
-            { label: "Stock Portfolio Analysis", url: "https://github.com/ShubhamDalvi1999/Stock_Portfolio_Analysis_POWER_BI" },
-            { label: "Digital Wellbeing Dashboard", url: "https://github.com/ShubhamDalvi1999/Digital_Wellbeing_Power_BI" },
-            { label: "Customer Demographics Analysis", url: "https://github.com/ShubhamDalvi1999/Customer-Persona-and-Demographics-Analysis" }
-          ]}
-        />
-      )
-    },
-    {
-      title: "Junior Developer",
-      content: (
-        <ExperienceBlock
-          position="Junior Developer"
-          company="StartUp Ventures"
-          period="2020 - 2021"
-          techStack="Flutter, Dart, Firebase, Python, Django"
-          bullets={[
-            "Developed cross-platform mobile applications using Flutter",
-            "Built web applications with Django and Python",
-            "Integrated third-party APIs and services",
-            "Collaborated with design and product teams"
-          ]}
-          githubLinks={[
-            { label: "House Rental App", url: "https://github.com/ShubhamDalvi1999/House_Rental_App_in_Flutter" },
-            { label: "Flutter Login Page", url: "https://github.com/ShubhamDalvi1999/FlutterLoginPage" },
-            { label: "Django HTML Rendering", url: "https://github.com/ShubhamDalvi1999/HtmlRenderingDjango" }
+            "Migrated large volumes of legacy data to Azure SQL Server using Informatica, performing efficient data extraction and leveraging SQL for data transformation, ensuring accuracy and consistency.",
+            "Monitored and scheduled Airflow pipelines, generating key reporting data and ensuring robust data management for email alerts on pipeline failures and successes, leading to a 30% reduction in manual intervention.",
+            "Designed and delivered RESTful APIs using Flask, upgraded endpoints per API contracts, integrated third-party services and reduced production errors by 25% through Postman testing, and ensured code quality.",
+            "Drove delivery in a 3-person squad across 10+ agile projects, led API design reviews with the React/TypeScript team, executed zero-downtime DB migrations with Alembic, and coordinated staged rollouts to 600 stores, contributing to 242% growth post-pilot."
           ]}
         />
       )
@@ -181,7 +149,7 @@ export default function Experience() {
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <Timeline data={timelineData} />
         </div>
       </div>

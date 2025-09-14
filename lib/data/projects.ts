@@ -113,15 +113,15 @@ export const projects = [
     }
   },
   {
-    id: "ecommerce-mlops-pipeline",
-    title: "E-commerce Customer Satisfaction MLOps Pipeline",
-    shortDescription: "End-to-end prediction pipeline with ZenML and MLflow for Brazilian E-commerce dataset",
-    description: "This end-to-end MLOps pipeline predicts a customer's satisfaction score on their next order using the Brazilian E-commerce Public Dataset. Built with ZenML, it orchestrates data ingestion, cleaning, model training, evaluation, and continuous deployment—all tracked and versioned via MLflow. A Streamlit app then pulls from the live model endpoint to serve real-time predictions.",
+    id: "mlops-sentiment-analysis",
+    title: "MLOps Sentiment Analysis Platform",
+    shortDescription: "A comprehensive, production-ready MLOps platform for YouTube comment sentiment analysis",
+    description: "A comprehensive, production-ready MLOps platform for YouTube comment sentiment analysis, featuring automated model training, A/B testing, monitoring, and deployment capabilities. This project demonstrates MLOps maturity level 2-3 with complete data versioning, experiment tracking, model lifecycle management, and real-time monitoring. Built with Docker-based microservices architecture, it includes automated training pipelines, quality gates, rollback capabilities, and comprehensive health monitoring.",
     category: "MLOps",
-    technologies: ["ZenML", "MLflow", "Python", "Streamlit", "CI/CD", "Machine Learning"],
+    technologies: ["Python", "MLflow", "DVC", "Docker", "Flask", "LightGBM", "A/B Testing", "Monitoring"],
     featured: true,
     links: {
-      github: "https://github.com/ShubhamDalvi1999/Customer-Persona-and-Demographics-Analysis"
+      github: "https://github.com/ShubhamDalvi1999/MLOps-Sentiment-Analysis"
     }
   },
   {
